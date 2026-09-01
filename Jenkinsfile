@@ -9,6 +9,12 @@ pipeline {
             }
         }
 
+        stage('Copy Environment') {
+            steps {
+                sh 'cp /var/lib/jenkins/.env backend/.env'
+            }
+        }
+
         stage('Build Images') {
             steps {
                 sh 'docker compose build'
